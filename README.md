@@ -56,3 +56,5 @@ Long Polling:
         ...
     }
 ```
+
+Use `FakeAPIService` with the same `loadRequest` call to fake a call. 
