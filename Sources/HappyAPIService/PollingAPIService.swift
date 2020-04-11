@@ -14,11 +14,11 @@ public enum PollingFrequency: Int {
     case rarely = 60
 }
 
-protocol PollingAPIServiceDelegate: class {
+public protocol PollingAPIServiceDelegate: class {
     func didPoll<T: Decodable>(result: Result<T>)
 }
 
-public class PollingAPIService: BaseAPIService {
+open class PollingAPIService: BaseAPIService {
     weak var delegate: PollingAPIServiceDelegate?
     private var timer: DispatchSourceTimer?
     

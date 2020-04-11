@@ -7,8 +7,9 @@
 
 import Foundation
 
-public class FakeAPIService: APIService {
+open class FakeAPIService: APIService {
     
+    public init() {}
     public private(set) var loadingMap = [String : Bool]()
     var timer: Timer?
     

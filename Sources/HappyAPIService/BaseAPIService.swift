@@ -1,8 +1,9 @@
 import Foundation
 
-public class BaseAPIService: APIService {
+open class BaseAPIService: APIService {
     public private(set) var loadingMap = [String: Bool]()
-    
+    public init() {}
+
     public func loadRequest<T: Decodable>(request: URLRequest,
                                           responseType: T.Type,
                                           threadType: APIServiceType = .serial,
