@@ -26,6 +26,7 @@ public class PollingAPIService: BaseAPIService {
                                    frequency: PollingFrequency = .normal,
                                    responseType: T.Type) {
         let queue = DispatchQueue.global(qos: .background)
+        self.timer?.cancel()
         let timer = DispatchSource.makeTimerSource(queue: queue)
         timer.schedule(deadline: .now(), repeating: .seconds(frequency.rawValue), leeway: .seconds(3))
         timer.setEventHandler(handler: { [weak self] in
@@ -38,5 +39,7 @@ public class PollingAPIService: BaseAPIService {
         timer.resume()
         self.timer = timer
     }
+    
+    func cancel() { timer?.cancel() }
     
 }
